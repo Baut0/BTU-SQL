@@ -42,6 +42,7 @@ namespace BTU_SQL
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LoginLoginLabel = new System.Windows.Forms.Label();
+            this.LoginPanelLeftCompLabel = new System.Windows.Forms.Label();
             this.LoginPanelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -52,6 +53,7 @@ namespace BTU_SQL
             // LoginPanelLeft
             // 
             this.LoginPanelLeft.BackColor = System.Drawing.Color.SkyBlue;
+            this.LoginPanelLeft.Controls.Add(this.LoginPanelLeftCompLabel);
             this.LoginPanelLeft.Controls.Add(this.pictureBox1);
             this.LoginPanelLeft.Controls.Add(this.LoginPanelLabelLeft2);
             this.LoginPanelLeft.Controls.Add(this.LoginPanelLeftLabel);
@@ -124,12 +126,14 @@ namespace BTU_SQL
             this.LoginBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
             this.LoginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LoginBtn.Font = new System.Drawing.Font("JetBrains Mono", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LoginBtn.Location = new System.Drawing.Point(461, 335);
+            this.LoginBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LoginBtn.Location = new System.Drawing.Point(449, 327);
             this.LoginBtn.Name = "LoginBtn";
             this.LoginBtn.Size = new System.Drawing.Size(114, 39);
             this.LoginBtn.TabIndex = 7;
             this.LoginBtn.Text = "Connect";
             this.LoginBtn.UseVisualStyleBackColor = false;
+            this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
             // 
             // pictureBox4
             // 
@@ -183,6 +187,17 @@ namespace BTU_SQL
             this.LoginLoginLabel.TabIndex = 3;
             this.LoginLoginLabel.Text = "LOGIN";
             // 
+            // LoginPanelLeftCompLabel
+            // 
+            this.LoginPanelLeftCompLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.LoginPanelLeftCompLabel.AutoSize = true;
+            this.LoginPanelLeftCompLabel.Font = new System.Drawing.Font("JetBrains Mono", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginPanelLeftCompLabel.Location = new System.Drawing.Point(12, 439);
+            this.LoginPanelLeftCompLabel.Name = "LoginPanelLeftCompLabel";
+            this.LoginPanelLeftCompLabel.Size = new System.Drawing.Size(92, 16);
+            this.LoginPanelLeftCompLabel.TabIndex = 3;
+            this.LoginPanelLeftCompLabel.Text = "ByteBuilders";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,6 +244,7 @@ namespace BTU_SQL
         public System.Windows.Forms.TextBox LoginPassBox;
         public System.Windows.Forms.Button LoginBtn;
         private System.Windows.Forms.Label LoginLoginLabel;
+        private System.Windows.Forms.Label LoginPanelLeftCompLabel;
     }
 }
 

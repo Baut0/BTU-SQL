@@ -20,5 +20,16 @@ namespace BTU_SQL
 
             
         }
+
+        public void LoginBtn_Click(object sender, EventArgs e)
+        {
+            string host = LoginServerIPBox.Text;
+            string username = LoginUsernameBox.Text;
+            string password = LoginPassBox.Text;
+
+            Main main = new Main(host,username,password);
+            main.Show();
+            this.Hide();
+        }
     }
 }
