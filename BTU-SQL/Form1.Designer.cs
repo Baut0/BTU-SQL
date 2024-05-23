@@ -41,6 +41,7 @@ namespace BTU_SQL
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.LoginLoginLabel = new System.Windows.Forms.Label();
             this.LoginPanelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -86,7 +87,7 @@ namespace BTU_SQL
             // 
             this.LoginServerIPBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LoginServerIPBox.Font = new System.Drawing.Font("Arial", 14.5F);
-            this.LoginServerIPBox.Location = new System.Drawing.Point(405, 136);
+            this.LoginServerIPBox.Location = new System.Drawing.Point(423, 155);
             this.LoginServerIPBox.Multiline = true;
             this.LoginServerIPBox.Name = "LoginServerIPBox";
             this.LoginServerIPBox.Size = new System.Drawing.Size(196, 35);
@@ -97,7 +98,7 @@ namespace BTU_SQL
             // 
             this.LoginUsernameBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LoginUsernameBox.Font = new System.Drawing.Font("Arial", 14.5F);
-            this.LoginUsernameBox.Location = new System.Drawing.Point(405, 194);
+            this.LoginUsernameBox.Location = new System.Drawing.Point(423, 213);
             this.LoginUsernameBox.Multiline = true;
             this.LoginUsernameBox.Name = "LoginUsernameBox";
             this.LoginUsernameBox.Size = new System.Drawing.Size(196, 35);
@@ -108,7 +109,7 @@ namespace BTU_SQL
             // 
             this.LoginPassBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LoginPassBox.Font = new System.Drawing.Font("Arial", 14.5F);
-            this.LoginPassBox.Location = new System.Drawing.Point(405, 252);
+            this.LoginPassBox.Location = new System.Drawing.Point(423, 271);
             this.LoginPassBox.Multiline = true;
             this.LoginPassBox.Name = "LoginPassBox";
             this.LoginPassBox.Size = new System.Drawing.Size(196, 35);
@@ -123,7 +124,7 @@ namespace BTU_SQL
             this.LoginBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
             this.LoginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LoginBtn.Font = new System.Drawing.Font("JetBrains Mono", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LoginBtn.Location = new System.Drawing.Point(443, 316);
+            this.LoginBtn.Location = new System.Drawing.Point(461, 335);
             this.LoginBtn.Name = "LoginBtn";
             this.LoginBtn.Size = new System.Drawing.Size(114, 39);
             this.LoginBtn.TabIndex = 7;
@@ -133,7 +134,7 @@ namespace BTU_SQL
             // pictureBox4
             // 
             this.pictureBox4.Image = global::BTU_SQL.Properties.Resources.padlock;
-            this.pictureBox4.Location = new System.Drawing.Point(362, 252);
+            this.pictureBox4.Location = new System.Drawing.Point(380, 271);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(37, 35);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -143,7 +144,7 @@ namespace BTU_SQL
             // pictureBox3
             // 
             this.pictureBox3.Image = global::BTU_SQL.Properties.Resources.profile;
-            this.pictureBox3.Location = new System.Drawing.Point(362, 194);
+            this.pictureBox3.Location = new System.Drawing.Point(380, 213);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(37, 35);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -153,7 +154,7 @@ namespace BTU_SQL
             // pictureBox2
             // 
             this.pictureBox2.Image = global::BTU_SQL.Properties.Resources.database;
-            this.pictureBox2.Location = new System.Drawing.Point(362, 136);
+            this.pictureBox2.Location = new System.Drawing.Point(380, 155);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(37, 35);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -171,12 +172,24 @@ namespace BTU_SQL
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
+            // LoginLoginLabel
+            // 
+            this.LoginLoginLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.LoginLoginLabel.AutoSize = true;
+            this.LoginLoginLabel.Font = new System.Drawing.Font("JetBrains Mono", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginLoginLabel.Location = new System.Drawing.Point(372, 81);
+            this.LoginLoginLabel.Name = "LoginLoginLabel";
+            this.LoginLoginLabel.Size = new System.Drawing.Size(120, 45);
+            this.LoginLoginLabel.TabIndex = 3;
+            this.LoginLoginLabel.Text = "LOGIN";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(709, 464);
+            this.Controls.Add(this.LoginLoginLabel);
             this.Controls.Add(this.LoginBtn);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
@@ -215,6 +228,7 @@ namespace BTU_SQL
         public System.Windows.Forms.TextBox LoginUsernameBox;
         public System.Windows.Forms.TextBox LoginPassBox;
         public System.Windows.Forms.Button LoginBtn;
+        private System.Windows.Forms.Label LoginLoginLabel;
     }
 }
 
