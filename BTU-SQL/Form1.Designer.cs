@@ -31,8 +31,10 @@ namespace BTU_SQL
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.LoginPanelLeft = new System.Windows.Forms.Panel();
-            this.LoginPanelLeftLabel = new System.Windows.Forms.Label();
+            this.LoginPanelLeftCompLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LoginPanelLabelLeft2 = new System.Windows.Forms.Label();
+            this.LoginPanelLeftLabel = new System.Windows.Forms.Label();
             this.LoginServerIPBox = new System.Windows.Forms.TextBox();
             this.LoginUsernameBox = new System.Windows.Forms.TextBox();
             this.LoginPassBox = new System.Windows.Forms.TextBox();
@@ -40,14 +42,12 @@ namespace BTU_SQL
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LoginLoginLabel = new System.Windows.Forms.Label();
-            this.LoginPanelLeftCompLabel = new System.Windows.Forms.Label();
             this.LoginPanelLeft.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // LoginPanelLeft
@@ -63,16 +63,27 @@ namespace BTU_SQL
             this.LoginPanelLeft.Size = new System.Drawing.Size(291, 464);
             this.LoginPanelLeft.TabIndex = 0;
             // 
-            // LoginPanelLeftLabel
+            // LoginPanelLeftCompLabel
             // 
-            this.LoginPanelLeftLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.LoginPanelLeftLabel.AutoSize = true;
-            this.LoginPanelLeftLabel.Font = new System.Drawing.Font("JetBrains Mono", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginPanelLeftLabel.Location = new System.Drawing.Point(12, 81);
-            this.LoginPanelLeftLabel.Name = "LoginPanelLeftLabel";
-            this.LoginPanelLeftLabel.Size = new System.Drawing.Size(127, 36);
-            this.LoginPanelLeftLabel.TabIndex = 0;
-            this.LoginPanelLeftLabel.Text = "BTU-SQL";
+            this.LoginPanelLeftCompLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.LoginPanelLeftCompLabel.AutoSize = true;
+            this.LoginPanelLeftCompLabel.Font = new System.Drawing.Font("JetBrains Mono", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginPanelLeftCompLabel.Location = new System.Drawing.Point(12, 439);
+            this.LoginPanelLeftCompLabel.Name = "LoginPanelLeftCompLabel";
+            this.LoginPanelLeftCompLabel.Size = new System.Drawing.Size(92, 16);
+            this.LoginPanelLeftCompLabel.TabIndex = 3;
+            this.LoginPanelLeftCompLabel.Text = "ByteBuilders";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.pictureBox1.Image = global::BTU_SQL.Properties.Resources.btu;
+            this.pictureBox1.Location = new System.Drawing.Point(55, 185);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(167, 170);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // LoginPanelLabelLeft2
             // 
@@ -85,6 +96,17 @@ namespace BTU_SQL
             this.LoginPanelLabelLeft2.TabIndex = 1;
             this.LoginPanelLabelLeft2.Text = "Database Controller";
             // 
+            // LoginPanelLeftLabel
+            // 
+            this.LoginPanelLeftLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.LoginPanelLeftLabel.AutoSize = true;
+            this.LoginPanelLeftLabel.Font = new System.Drawing.Font("JetBrains Mono", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginPanelLeftLabel.Location = new System.Drawing.Point(12, 81);
+            this.LoginPanelLeftLabel.Name = "LoginPanelLeftLabel";
+            this.LoginPanelLeftLabel.Size = new System.Drawing.Size(127, 36);
+            this.LoginPanelLeftLabel.TabIndex = 0;
+            this.LoginPanelLeftLabel.Text = "BTU-SQL";
+            // 
             // LoginServerIPBox
             // 
             this.LoginServerIPBox.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -93,8 +115,10 @@ namespace BTU_SQL
             this.LoginServerIPBox.Multiline = true;
             this.LoginServerIPBox.Name = "LoginServerIPBox";
             this.LoginServerIPBox.Size = new System.Drawing.Size(196, 35);
-            this.LoginServerIPBox.TabIndex = 1;
-            this.LoginServerIPBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.LoginServerIPBox.TabIndex = 2;
+            this.LoginServerIPBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;         
+            this.LoginServerIPBox.Enter += new System.EventHandler(this.LoginServerIPBox_Enter);
+            this.LoginServerIPBox.Leave += new System.EventHandler(this.LoginServerIPBox_Leave);
             // 
             // LoginUsernameBox
             // 
@@ -104,8 +128,10 @@ namespace BTU_SQL
             this.LoginUsernameBox.Multiline = true;
             this.LoginUsernameBox.Name = "LoginUsernameBox";
             this.LoginUsernameBox.Size = new System.Drawing.Size(196, 35);
-            this.LoginUsernameBox.TabIndex = 2;
+            this.LoginUsernameBox.TabIndex = 3;
             this.LoginUsernameBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.LoginUsernameBox.Enter += new System.EventHandler(this.LoginUsernameBox_Enter);
+            this.LoginUsernameBox.Leave += new System.EventHandler(this.LoginUsernameBox_Leave);
             // 
             // LoginPassBox
             // 
@@ -115,8 +141,10 @@ namespace BTU_SQL
             this.LoginPassBox.Multiline = true;
             this.LoginPassBox.Name = "LoginPassBox";
             this.LoginPassBox.Size = new System.Drawing.Size(196, 35);
-            this.LoginPassBox.TabIndex = 3;
+            this.LoginPassBox.TabIndex = 4;
             this.LoginPassBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.LoginPassBox.Enter += new System.EventHandler(this.LoginPassBox_Enter);
+            this.LoginPassBox.Leave += new System.EventHandler(this.LoginPassBox_Leave);
             // 
             // LoginBtn
             // 
@@ -130,7 +158,7 @@ namespace BTU_SQL
             this.LoginBtn.Location = new System.Drawing.Point(449, 327);
             this.LoginBtn.Name = "LoginBtn";
             this.LoginBtn.Size = new System.Drawing.Size(114, 39);
-            this.LoginBtn.TabIndex = 7;
+            this.LoginBtn.TabIndex = 1;
             this.LoginBtn.Text = "Connect";
             this.LoginBtn.UseVisualStyleBackColor = false;
             this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
@@ -165,17 +193,6 @@ namespace BTU_SQL
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pictureBox1.Image = global::BTU_SQL.Properties.Resources.btu;
-            this.pictureBox1.Location = new System.Drawing.Point(55, 185);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(167, 170);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
             // LoginLoginLabel
             // 
             this.LoginLoginLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -184,19 +201,8 @@ namespace BTU_SQL
             this.LoginLoginLabel.Location = new System.Drawing.Point(372, 81);
             this.LoginLoginLabel.Name = "LoginLoginLabel";
             this.LoginLoginLabel.Size = new System.Drawing.Size(120, 45);
-            this.LoginLoginLabel.TabIndex = 3;
+            this.LoginLoginLabel.TabIndex = 0;
             this.LoginLoginLabel.Text = "LOGIN";
-            // 
-            // LoginPanelLeftCompLabel
-            // 
-            this.LoginPanelLeftCompLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.LoginPanelLeftCompLabel.AutoSize = true;
-            this.LoginPanelLeftCompLabel.Font = new System.Drawing.Font("JetBrains Mono", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginPanelLeftCompLabel.Location = new System.Drawing.Point(12, 439);
-            this.LoginPanelLeftCompLabel.Name = "LoginPanelLeftCompLabel";
-            this.LoginPanelLeftCompLabel.Size = new System.Drawing.Size(92, 16);
-            this.LoginPanelLeftCompLabel.TabIndex = 3;
-            this.LoginPanelLeftCompLabel.Text = "ByteBuilders";
             // 
             // Form1
             // 
@@ -219,12 +225,13 @@ namespace BTU_SQL
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BTU-SQL";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.LoginPanelLeft.ResumeLayout(false);
             this.LoginPanelLeft.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

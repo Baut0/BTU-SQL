@@ -42,17 +42,11 @@ namespace BTU_SQL
             }
         }
 
-
-        private void Main_Load(object sender, EventArgs e)
+        public void LoadDatabases()
         {
-          string ConnectionString = $"Server={gelenhost};Uid={gelenusername};Pwd={gelenpassword};";
+            string ConnectionString = $"Server={gelenhost};Uid={gelenusername};Pwd={gelenpassword};";
 
             MySqlConnection conn = new MySqlConnection(ConnectionString);
-
-           
-            
-
-
             try
             {
                 conn.Open();
@@ -69,6 +63,14 @@ namespace BTU_SQL
             }
             SetAllRowsHeight(25);
             SetAllColumnsWidth(226);
+        }
+
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            LoadDatabases();
+
+           
 
         }
     }

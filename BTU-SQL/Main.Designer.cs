@@ -36,8 +36,9 @@ namespace BTU_SQL
             // 
             // databaseView
             // 
+            this.databaseView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.databaseView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.databaseView.Location = new System.Drawing.Point(12, 66);
+            this.databaseView.Location = new System.Drawing.Point(12, 12);
             this.databaseView.Name = "databaseView";
             this.databaseView.Size = new System.Drawing.Size(286, 180);
             this.databaseView.TabIndex = 0;
