@@ -27,8 +27,14 @@ namespace BTU_SQL
         private void SetAllRowsHeight(int height)
         {
             databaseView.RowTemplate.Height = height;
+            tableView.RowTemplate.Height = height;
             
             foreach (DataGridViewRow row in databaseView.Rows)
+            {
+                row.Height = height;
+            }
+
+            foreach(DataGridViewRow row in tableView.Rows)
             {
                 row.Height = height;
             }
@@ -39,6 +45,45 @@ namespace BTU_SQL
             foreach (DataGridViewColumn column in databaseView.Columns)
             {
                 column.Width = width;
+            }
+
+            foreach (DataGridViewColumn column in tableView.Columns)
+            {
+                column.Width = width;
+            }
+        }
+
+       
+        private void ListTables(string databaseName)
+        {
+            string connectionString = $"Server={gelenhost};Database={databaseName};User ID={gelenusername};Password={gelenpassword};";
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = new MySqlCommand("SHOW TABLES", connection);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                    DataTable tables = new DataTable();
+                    adapter.Fill(tables);
+                    tableView.DataSource = tables;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+                SetAllRowsHeight(25);
+                SetAllColumnsWidth(226);
+            }
+        }
+
+        private void databaseView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.databaseView.Rows[e.RowIndex];
+                string databaseName = row.Cells[0].Value.ToString();
+                ListTables(databaseName);
             }
         }
 
@@ -69,6 +114,7 @@ namespace BTU_SQL
         private void Main_Load(object sender, EventArgs e)
         {
             LoadDatabases();
+            
 
            
 
