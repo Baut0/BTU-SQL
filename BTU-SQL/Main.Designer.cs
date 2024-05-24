@@ -34,9 +34,12 @@ namespace BTU_SQL
             this.tableView = new System.Windows.Forms.DataGridView();
             this.DatabaseLabel = new System.Windows.Forms.Label();
             this.TablesLabel = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.MainTextBox = new System.Windows.Forms.RichTextBox();
+            this.ResultsView = new System.Windows.Forms.DataGridView();
+            this.ResultsLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.databaseView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ResultsView)).BeginInit();
             this.SuspendLayout();
             // 
             // databaseView
@@ -58,11 +61,12 @@ namespace BTU_SQL
             this.tableView.AllowUserToDeleteRows = false;
             this.tableView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.tableView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tableView.Location = new System.Drawing.Point(815, 44);
+            this.tableView.Location = new System.Drawing.Point(12, 271);
             this.tableView.Name = "tableView";
             this.tableView.ReadOnly = true;
             this.tableView.Size = new System.Drawing.Size(286, 180);
             this.tableView.TabIndex = 1;
+            this.tableView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableView_CellClick);
             // 
             // DatabaseLabel
             // 
@@ -78,26 +82,51 @@ namespace BTU_SQL
             // 
             this.TablesLabel.AutoSize = true;
             this.TablesLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TablesLabel.Location = new System.Drawing.Point(812, 23);
+            this.TablesLabel.Location = new System.Drawing.Point(9, 250);
             this.TablesLabel.Name = "TablesLabel";
             this.TablesLabel.Size = new System.Drawing.Size(53, 18);
             this.TablesLabel.TabIndex = 3;
             this.TablesLabel.Text = "Tables";
             // 
-            // richTextBox1
+            // MainTextBox
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(320, 44);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(471, 433);
-            this.richTextBox1.TabIndex = 4;
-            this.richTextBox1.Text = "";
+            this.MainTextBox.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.MainTextBox.Location = new System.Drawing.Point(330, 44);
+            this.MainTextBox.Name = "MainTextBox";
+            this.MainTextBox.Size = new System.Drawing.Size(746, 385);
+            this.MainTextBox.TabIndex = 4;
+            this.MainTextBox.Text = "";
+            // 
+            // ResultsView
+            // 
+            this.ResultsView.AllowUserToAddRows = false;
+            this.ResultsView.AllowUserToDeleteRows = false;
+            this.ResultsView.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.ResultsView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ResultsView.Location = new System.Drawing.Point(330, 471);
+            this.ResultsView.Name = "ResultsView";
+            this.ResultsView.ReadOnly = true;
+            this.ResultsView.Size = new System.Drawing.Size(746, 188);
+            this.ResultsView.TabIndex = 5;
+            // 
+            // ResultsLabel
+            // 
+            this.ResultsLabel.AutoSize = true;
+            this.ResultsLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.ResultsLabel.Location = new System.Drawing.Point(327, 450);
+            this.ResultsLabel.Name = "ResultsLabel";
+            this.ResultsLabel.Size = new System.Drawing.Size(59, 18);
+            this.ResultsLabel.TabIndex = 6;
+            this.ResultsLabel.Text = "Results";
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1113, 671);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.ResultsLabel);
+            this.Controls.Add(this.ResultsView);
+            this.Controls.Add(this.MainTextBox);
             this.Controls.Add(this.TablesLabel);
             this.Controls.Add(this.DatabaseLabel);
             this.Controls.Add(this.tableView);
@@ -108,6 +137,7 @@ namespace BTU_SQL
             this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.databaseView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ResultsView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,6 +149,8 @@ namespace BTU_SQL
         private System.Windows.Forms.DataGridView tableView;
         private System.Windows.Forms.Label DatabaseLabel;
         private System.Windows.Forms.Label TablesLabel;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox MainTextBox;
+        private System.Windows.Forms.DataGridView ResultsView;
+        private System.Windows.Forms.Label ResultsLabel;
     }
 }

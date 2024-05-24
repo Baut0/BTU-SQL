@@ -21,13 +21,17 @@ namespace BTU_SQL
             gelenhost = host;
             gelenusername = username;
             gelenpassword = pass;
-           
+
+            this.Load += new System.EventHandler(this.Main_Load);
+            this.databaseView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.databaseView_CellClick);
+
         }
 
         private void SetAllRowsHeight(int height)
         {
             databaseView.RowTemplate.Height = height;
             tableView.RowTemplate.Height = height;
+            ResultsView.RowTemplate.Height = height;
             
             foreach (DataGridViewRow row in databaseView.Rows)
             {
@@ -35,6 +39,10 @@ namespace BTU_SQL
             }
 
             foreach(DataGridViewRow row in tableView.Rows)
+            {
+                row.Height = height;
+            }
+            foreach (DataGridViewRow row in ResultsView.Rows)
             {
                 row.Height = height;
             }
@@ -51,11 +59,18 @@ namespace BTU_SQL
             {
                 column.Width = width;
             }
+            foreach (DataGridViewColumn column in ResultsView.Columns)
+            {
+                column.Width = width;
+            }
         }
 
-       
+        
+
+
         private void ListTables(string databaseName)
         {
+            
             string connectionString = $"Server={gelenhost};Database={databaseName};User ID={gelenusername};Password={gelenpassword};";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -77,6 +92,7 @@ namespace BTU_SQL
             }
         }
 
+        //TABLE_VIEW
         private void databaseView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -85,8 +101,52 @@ namespace BTU_SQL
                 string databaseName = row.Cells[0].Value.ToString();
                 ListTables(databaseName);
             }
+
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.databaseView.Rows[e.RowIndex];
+                selectedDatabase = row.Cells[0].Value.ToString();
+                ListTables(selectedDatabase);
+            }
         }
 
+
+        private string selectedDatabase;
+        private void tableView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.tableView.Rows[e.RowIndex];
+                string tableName = row.Cells[0].Value.ToString();
+                ListTableData(selectedDatabase, tableName);
+            }
+        }
+
+        //RESULT_VIEW
+        private void ListTableData(string databaseName, string tableName)
+        {
+            string connectionString = $"Server={gelenhost};Database={databaseName};User ID={gelenusername};Password={gelenpassword};";
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = new MySqlCommand($"SELECT * FROM `{tableName}`", connection);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                    DataTable tableData = new DataTable();
+                    adapter.Fill(tableData);
+                    ResultsView.DataSource = tableData;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+                SetAllRowsHeight(25);
+                SetAllColumnsWidth(200);
+            }
+        }
+
+        //DATABASE_VIEW
         public void LoadDatabases()
         {
             string ConnectionString = $"Server={gelenhost};Uid={gelenusername};Pwd={gelenpassword};";
@@ -114,9 +174,9 @@ namespace BTU_SQL
         private void Main_Load(object sender, EventArgs e)
         {
             LoadDatabases();
-            
+            databaseView.CellClick += new DataGridViewCellEventHandler(databaseView_CellClick);
 
-           
+
 
         }
     }
